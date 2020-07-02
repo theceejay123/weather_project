@@ -3,11 +3,13 @@ import SearchBar from './SearchBar/SearchBar';
 import WeatherContainer from './Weather/Weather';
 
 const App = () => {
+  const appID = 'daddc13f21c2e3b7b755ba12eb40b020';
   const [forecast, setForecast] = useState([]);
 
   const childProps = {
     forecast: forecast,
-    setForecast: setForecast
+    setForecast: setForecast,
+    appID: appID
   };
 
   return (

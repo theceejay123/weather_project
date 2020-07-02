@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SearchBar = ({ props }) => {
-
+  const [searchParam, setSearchParam] = useState("");
   const searchData = () => {
-    fetch("http://api.openweathermap.org/data/2.5/forecast?q=winnipeg&appid=daddc13f21c2e3b7b755ba12eb40b020")
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${searchParam}&appid=${props.appID}`)
       .then(res => {
         if (res.status === 200) {
           return res.json();
