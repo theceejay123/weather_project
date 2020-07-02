@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const SearchBar = ({ props }) => {
   const [searchParam, setSearchParam] = useState("");
+
   const searchData = () => {
     fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${searchParam}&appid=${props.appID}`)
       .then(res => {
