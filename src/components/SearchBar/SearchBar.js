@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 const SearchBar = ({ props }) => {
   const [searchParam, setSearchParam] = useState("");
 
+  const handleChange = (event) => {
+    setSearchParam(event.target.value)
+  }
+
   const searchData = () => {
     fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${searchParam}&appid=${props.appID}`)
       .then(res => {
@@ -17,7 +21,7 @@ const SearchBar = ({ props }) => {
 
   return (
     <div className="searchBarContainer">
-      {console.log(props.cities)}
+      <input onChange={handleChange} />
       <button onClick={searchData}>Click Me</button>
     </div>
   );

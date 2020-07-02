@@ -8,22 +8,14 @@ import WeatherContainer from './Weather/Weather';
 const App = () => {
   const appID = 'daddc13f21c2e3b7b755ba12eb40b020';
   const [forecast, setForecast] = useState([]);
-
-  // add JSON data to list
-  const [cities, setCities] = useState();
-  useEffect(() => {
-    const getCities = () => {
-
-    }
-
-    getCities();
-  }, [])
+  const [lastSearched, setLastSearched] = useState([]);
 
   const childProps = {
     forecast: forecast,
     setForecast: setForecast,
     appID: appID,
-    cities: cities
+    lastSearched: lastSearched,
+    setLastSearched: setLastSearched
   };
 
   return (
