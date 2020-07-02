@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './SearchBar/SearchBar';
-import WeatherContainer from './Weather/Weather';
+import Weather from './Weather/Weather';
 
 // JSON Data - {WIP}
 // import cityData from '../utils/city_list.json';
@@ -25,7 +25,11 @@ const App = () => {
         <SearchBar props={childProps} />
       </div>
       <div className="weatherContainer">
-        <WeatherContainer props={childProps} />
+        <Weather day={} icon={} minTemp={} maxTemp={} />
+        <Weather day={} icon={} minTemp={} maxTemp={} />
+        <Weather day={} icon={} minTemp={} maxTemp={} />
+        <Weather day={} icon={} minTemp={} maxTemp={} />
+        <Weather day={} icon={} minTemp={} maxTemp={} />
       </div>
     </div>
   );

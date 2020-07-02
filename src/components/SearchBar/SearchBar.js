@@ -21,8 +21,12 @@ const SearchBar = ({ props }) => {
 
   return (
     <div className="searchBarContainer">
-      <input onChange={handleChange} />
-      <button onClick={searchData}>Click Me</button>
+      <input onChange={handleChange} onKeyUp={(event) => {
+        if (event.keyCode === 13) {
+          searchData();
+        }
+      }} />
+      <button onClick={searchData}>Search</button>
     </div>
   );
 }
