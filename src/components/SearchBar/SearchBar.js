@@ -17,6 +17,7 @@ const SearchBar = ({ props }) => {
 
   return (
     <div className="searchBarContainer">
+      {console.log(props.cities)}
       <button onClick={searchData}>Click Me</button>
     </div>
   );
