@@ -3,7 +3,7 @@ import Days from '../Days/Days';
 import Icon from '../Icon/Icon';
 import Temperature from '../Temperature/Temperature';
 
-const Weather = ({ props }) => {
+const Weather = (props) => {
   return (
     <div className="weatherContainer">
       <div className="weather card">

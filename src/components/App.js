@@ -25,11 +25,11 @@ const App = () => {
         <SearchBar props={childProps} />
       </div>
       <div className="weatherContainer">
-        {/* <Weather day={} icon={} minTemp={} maxTemp={} />
-        <Weather day={} icon={} minTemp={} maxTemp={} />
-        <Weather day={} icon={} minTemp={} maxTemp={} />
-        <Weather day={} icon={} minTemp={} maxTemp={} />
-        <Weather day={} icon={} minTemp={} maxTemp={} /> */}
+        <Weather day='Monday' icon='sunny' minTemp={23} maxTemp={14} />
+        <Weather day='Tuesday' icon='snowy' minTemp={23} maxTemp={14} />
+        <Weather day='Wednesday' icon='windy' minTemp={23} maxTemp={14} />
+        <Weather day='Thursday' icon='rainy' minTemp={23} maxTemp={14} />
+        <Weather day='Friday' icon='thunder' minTemp={23} maxTemp={14} />
       </div>
     </div>
   );
