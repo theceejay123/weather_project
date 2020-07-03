@@ -27,7 +27,7 @@ const SearchBar = ({ props }) => {
         }
       }} />
       <button onClick={searchData}>Search</button>
-    </div>
+    </div >
   );
 }
 
