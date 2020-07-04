@@ -9,14 +9,48 @@ const App = () => {
   const appID = 'daddc13f21c2e3b7b755ba12eb40b020';
   const [forecast, setForecast] = useState([]);
   const [lastSearched, setLastSearched] = useState([]);
+  const [forecastArray, setForecastArray] = useState([]);
 
   const childProps = {
     forecast: forecast,
     setForecast: setForecast,
     appID: appID,
-    lastSearched: lastSearched,
-    setLastSearched: setLastSearched
+    // lastSearched: lastSearched,
+    // setLastSearched: setLastSearched
   };
+
+  useEffect(() => {
+    const getForecast = () => {
+      if (forecast.length !== 0) {
+        setLastSearched(forecast["city"].name)
+        const dataArray = forecast["list"];
+        const convertedArray = dataArray.map(t => {
+          const dateObject = new Date((t.dt * 1000));
+
+          const newObject = {
+            day: dateObject.toLocaleString("en-US", { weekday: "long" }), // Monday
+            main: t.main,
+            weather: t.weather
+          }
+          return newObject
+        });
+
+        // Filter same days.
+        const fiveDayArray = convertedArray.reduce((unique, current) => {
+          return typeof unique.find(item => item.day === current.day) === 'undefined' ? unique.concat([current]) : unique;
+        }, [])
+        setForecastArray(fiveDayArray);
+      }
+    }
+
+    const clearForecast = () => {
+      setForecastArray([]);
+      setLastSearched([]);
+    }
+
+    if (typeof forecast !== 'undefined') getForecast();
+    else clearForecast();
+  }, [forecast])
 
   return (
     <div className="App">
@@ -25,11 +59,15 @@ const App = () => {
         <SearchBar props={childProps} />
       </div>
       <div className="weatherContainer">
-        <Weather day='Monday' icon='sunny' minTemp={23} maxTemp={14} />
-        <Weather day='Tuesday' icon='snowy' minTemp={23} maxTemp={14} />
-        <Weather day='Wednesday' icon='windy' minTemp={23} maxTemp={14} />
-        <Weather day='Thursday' icon='rainy' minTemp={23} maxTemp={14} />
-        <Weather day='Friday' icon='thunder' minTemp={23} maxTemp={14} />
+        {typeof forecast !== 'undefined' && forecast.length !== 0 ? (
+          <>
+            <h3>Forecast results for {lastSearched}</h3>
+            {forecastArray.map((data, index) => {
+              return <Weather day={data.day} icon={data.weather[0].main} minTemp={data.main.temp_min} maxTemp={data.main.temp_max} key={index} />
+            })}
+          </>
+        ) : <p>No results found.</p>
+        }
       </div>
     </div>
   );

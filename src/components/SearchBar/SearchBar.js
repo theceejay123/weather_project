@@ -8,7 +8,7 @@ const SearchBar = ({ props }) => {
   }
 
   const searchData = () => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${searchParam}&appid=${props.appID}`)
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${searchParam}&units=metric&appid=${props.appID}`)
       .then(res => {
         if (res.status === 200) {
           return res.json();

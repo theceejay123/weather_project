@@ -13,13 +13,13 @@ const Icon = (props) => {
   let icon;
 
   switch (props.icon) {
-    case 'Cloudy':
+    case 'Clouds':
       icon = Cloudy;
       break;
     case 'Rain':
       icon = Rainy;
       break;
-    case 'Sun':
+    case 'Clear':
       icon = Sunny;
       break;
     case 'Snow':
