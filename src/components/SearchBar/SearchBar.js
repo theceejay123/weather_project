@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+
+import './SearchBar.css';
 
 const SearchBar = ({ props }) => {
   const [searchParam, setSearchParam] = useState("");
@@ -21,12 +26,21 @@ const SearchBar = ({ props }) => {
 
   return (
     <div className="searchBarContainer">
-      <input onChange={handleChange} onKeyUp={(event) => {
-        if (event.keyCode === 13) {
-          searchData();
-        }
-      }} />
-      <button onClick={searchData}>Search</button>
+      <InputGroup size="lg" className="mb-23">
+        <FormControl
+          placeholder="Search City..."
+          aria-label="Search City..."
+          aria-describedby="basic-addon2"
+          onChange={handleChange} onKeyUp={(event) => {
+            if (event.keyCode === 13) {
+              searchData();
+            }
+          }}
+        />
+        <InputGroup.Append>
+          <Button onClick={searchData} variant="outline-secondary">Search</Button>
+        </InputGroup.Append>
+      </InputGroup>
     </div >
   );
 }

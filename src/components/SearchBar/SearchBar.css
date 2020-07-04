@@ -1,0 +1,15 @@
+.searchBarContainer {
+    font-family: 'Poiret One', cursive;
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
+
+@media only screen and (min-width:900px) {
+    .searchBarContainer {
+        width: 70%;
+        margin: auto;
+        padding: 2rem;
+    }
+}

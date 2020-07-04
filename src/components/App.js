@@ -5,6 +5,8 @@ import Weather from './Weather/Weather';
 // JSON Data - {WIP}
 // import cityData from '../utils/city_list.json';
 
+import './App.css';
+
 const App = () => {
   const appID = 'daddc13f21c2e3b7b755ba12eb40b020';
   const [forecast, setForecast] = useState([]);
@@ -55,20 +57,20 @@ const App = () => {
   return (
     <div className="App">
       <div className="barContainer">
-        <h1>Weather</h1>
+        <h1 className="title">Five Day Forecast</h1>
         <SearchBar props={childProps} />
       </div>
       <div className="weatherContainer">
         {typeof forecast !== 'undefined' && forecast.length !== 0 ? (
           <>
-            <h3>Forecast results for {lastSearched}</h3>
+            <h3 className="resultText">Forecast results for "{lastSearched}"</h3>
             {forecastArray.map((data, index) => {
               let x;
               if (index <= 4) x = <Weather day={data.day} icon={data.weather[0].main} minTemp={data.main.temp_min} maxTemp={data.main.temp_max} key={index} />;
               return x;
             })}
           </>
-        ) : <p>No results found.</p>
+        ) : <h3 className="resultText">No results found.</h3>
         }
       </div>
     </div>
