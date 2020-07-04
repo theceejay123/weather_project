@@ -63,7 +63,9 @@ const App = () => {
           <>
             <h3>Forecast results for {lastSearched}</h3>
             {forecastArray.map((data, index) => {
-              return <Weather day={data.day} icon={data.weather[0].main} minTemp={data.main.temp_min} maxTemp={data.main.temp_max} key={index} />
+              let x;
+              if (index <= 4) x = <Weather day={data.day} icon={data.weather[0].main} minTemp={data.main.temp_min} maxTemp={data.main.temp_max} key={index} />;
+              return x;
             })}
           </>
         ) : <p>No results found.</p>
