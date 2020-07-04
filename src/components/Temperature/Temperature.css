@@ -1,0 +1,10 @@
+.temperatureContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.min, .max {
+    font-family: 'Poiret One', cursive;
+    font-weight: 600;
+    font-size: 1.1rem;
+}

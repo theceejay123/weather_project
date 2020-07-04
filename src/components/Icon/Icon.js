@@ -8,6 +8,8 @@ import Thunder from '../../assets/thunder.svg';
 import Thermometer from '../../assets/thermometer.svg';
 import Snowy from '../../assets/snowy.svg';
 
+import './Icon.css';
+
 const Icon = (props) => {
 
   let icon;
@@ -33,7 +35,7 @@ const Icon = (props) => {
       break;
   }
 
-  return <img className="icon" src={icon} alt={icon} />;
+  return <img className="Icon" src={icon} alt={icon} />;
 }
 
 export default Icon;
