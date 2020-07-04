@@ -13,7 +13,7 @@ const SearchBar = ({ props }) => {
   }
 
   const searchData = () => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${searchParam}&units=metric&appid=${props.appID}`)
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${searchParam.replace(/\s+/g, '')}&units=metric&appid=${props.appID}`)
       .then(res => {
         if (res.status === 200) {
           return res.json();
@@ -28,8 +28,8 @@ const SearchBar = ({ props }) => {
     <div className="searchBarContainer">
       <InputGroup size="lg" className="mb-23">
         <FormControl
-          placeholder="Search City..."
-          aria-label="Search City..."
+          placeholder="London, UK"
+          aria-label="London, UK"
           aria-describedby="basic-addon2"
           onChange={handleChange} onKeyUp={(event) => {
             if (event.keyCode === 13) {
