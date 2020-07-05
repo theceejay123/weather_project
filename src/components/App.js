@@ -33,8 +33,9 @@ const App = () => {
             day: dateObject.toLocaleString("en-US", { weekday: "long" }), // Monday
             main: t.main,
             weather: t.weather
-          }
-          return newObject
+          };
+
+          return newObject;
         });
 
         // Filter same days.
@@ -47,7 +48,6 @@ const App = () => {
 
     const clearForecast = () => {
       setForecastArray([]);
-      setLastSearched([]);
     }
 
     if (typeof forecast !== 'undefined') getForecast();
@@ -61,17 +61,33 @@ const App = () => {
         <SearchBar props={childProps} />
       </div>
       <div className="weatherContainer">
-        {typeof forecast !== 'undefined' && forecast.length !== 0 ? (
-          <>
-            <h3 className="resultText">Forecast results for "{lastSearched}"</h3>
+        {typeof forecast !== "undefined" && forecast.length !== 0 ? (
+          <React.Fragment>
+            <h3 className="resultText">
+              Forecast results for "{lastSearched}"
+            </h3>
             {forecastArray.map((data, index) => {
               let x;
-              if (index <= 4) x = <Weather day={data.day} icon={data.weather[0].main} minTemp={data.main.temp_min} maxTemp={data.main.temp_max} key={index} />;
+              if (index <= 4)
+                x = (
+                  <Weather
+                    day={data.day}
+                    icon={data.weather[0].main}
+                    minTemp={data.main.temp_min}
+                    maxTemp={data.main.temp_max}
+                    key={index}
+                  />
+                );
               return x;
             })}
-          </>
-        ) : <h3 className="resultText">No results found.</h3>
-        }
+          </React.Fragment>
+        ) : lastSearched.length !== 0 ? (
+          <div>
+            <h3 className="resultText">No results found.</h3>
+          </div>
+        ) : (
+          <h3 className="resultText">Search a city to get started...</h3>
+        )}
       </div>
     </div>
   );
