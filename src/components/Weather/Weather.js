@@ -35,6 +35,7 @@ const Weather = (props) => {
         <Button onClick={handleClick} />
         {isOpen && (
           <InfoModal
+            day={props.day}
             currentTemp={props.currentTemp}
             show={isOpen}
             onHide={handleClick}

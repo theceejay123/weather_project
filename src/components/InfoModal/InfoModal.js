@@ -1,6 +1,7 @@
 import React from "react";
 
 import Modal from "react-bootstrap/Modal";
+import Days from "../Days/Days";
 
 const InfoModal = (props) => {
   return (
@@ -14,9 +15,9 @@ const InfoModal = (props) => {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
-            Test Heading
+            <Days day={props.day} />
           </Modal.Title>
         </Modal.Header>
       </Modal>
