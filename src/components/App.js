@@ -24,6 +24,7 @@ const App = () => {
   useEffect(() => {
     const getForecast = () => {
       if (forecast.length !== 0) {
+        console.log(forecast);
         setLastSearched(forecast["city"].name)
         const dataArray = forecast["list"];
         const convertedArray = dataArray.map(t => {
@@ -73,8 +74,12 @@ const App = () => {
                   <Weather
                     day={data.day}
                     icon={data.weather[0].main}
+                    // weatherDescription={data.weather[0].description}
                     minTemp={data.main.temp_min}
                     maxTemp={data.main.temp_max}
+                    currentTemp={data.main.temp}
+                    // feelsLike={data.main.feels_like}
+                    // humidity={data.main.humidity}
                     key={index}
                   />
                 );

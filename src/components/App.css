@@ -1,5 +1,4 @@
 .App {
-    width: 90%;
     margin: auto;
     padding: 1rem;
 }
@@ -26,7 +25,7 @@
 
 @media only screen and (min-width: 900px) {
     .App {
-        width: 60%;
-        padding: 2rem;
+        width: 70%;
+        padding: 1rem;
     }
 }

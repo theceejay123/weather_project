@@ -16,7 +16,7 @@ const Weather = (props) => {
         </div>
         <Icon icon={props.icon} />
       </div>
-    </Card >
+    </Card>
   );
 }
 

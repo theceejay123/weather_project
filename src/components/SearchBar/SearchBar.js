@@ -28,8 +28,8 @@ const SearchBar = ({ props }) => {
     <div className="searchBarContainer">
       <InputGroup size="lg" className="mb-23">
         <FormControl
-          placeholder="London, UK"
-          aria-label="London, UK"
+          placeholder="e.g London, UK"
+          aria-label="e.g London, UK"
           aria-describedby="basic-addon2"
           onChange={handleChange} onKeyUp={(event) => {
             if (event.keyCode === 13) {
