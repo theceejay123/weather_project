@@ -1,6 +1,7 @@
 .weatherCard {
     display: flex !important;
     padding: 1rem;
+    justify-content: space-between;
 }
 
 .groupOne {
@@ -12,8 +13,7 @@
 .card {
     border-radius: 1rem;
     margin: 7px;
-    -webkit-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.53);
-    -moz-box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.53);
-    box-shadow: 6px 6px 7px -1px rgba(0,0,0,0.53);
+    -webkit-box-shadow: 6px 6px 7px -1px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: 6px 6px 7px -1px rgba(0, 0, 0, 0.53);
+    box-shadow: 6px 6px 7px -1px rgba(0, 0, 0, 0.53);
 }
-

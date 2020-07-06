@@ -1,12 +1,21 @@
-import React from 'react';
-import Days from '../Days/Days';
-import Icon from '../Icon/Icon';
-import Temperature from '../Temperature/Temperature';
+import React, { useState } from "react";
+import Days from "../Days/Days";
+import Icon from "../Icon/Icon";
+import Temperature from "../Temperature/Temperature";
+import InfoModal from "../InfoModal/InfoModal";
 
-import Card from 'react-bootstrap/Card';
-import './Weather.css';
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+
+import "./Weather.css";
 
 const Weather = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = (event) => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Card>
       <div className="weatherCard">
@@ -15,9 +24,17 @@ const Weather = (props) => {
           <Temperature minTemp={props.minTemp} maxTemp={props.maxTemp} />
         </div>
         <Icon icon={props.icon} />
+        <Button onClick={handleClick} />
+        {isOpen && (
+          <InfoModal
+            currentTemp={props.currentTemp}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          />
+        )}
       </div>
     </Card>
   );
-}
+};
 
 export default Weather;
