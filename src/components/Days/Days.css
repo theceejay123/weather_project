@@ -1,6 +1,8 @@
 .Day {
     font-family: 'Poiret One', cursive;
     font-size: 1.5rem;
+    font-style: italic;
     font-weight: 900;
-    padding-bottom: 1rem;
+    font-variant-caps: small-caps;
+    padding-bottom: 0.30rem;
 }

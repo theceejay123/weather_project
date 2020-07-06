@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import SearchBar from './SearchBar/SearchBar';
-import Weather from './Weather/Weather';
+import React, { useState, useEffect } from "react";
+import SearchBar from "./SearchBar/SearchBar";
+import Weather from "./Weather/Weather";
 
 // JSON Data - {WIP}
 // import cityData from '../utils/city_list.json';
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
-  const appID = 'daddc13f21c2e3b7b755ba12eb40b020';
+  const appID = "daddc13f21c2e3b7b755ba12eb40b020";
   const [forecast, setForecast] = useState([]);
   const [lastSearched, setLastSearched] = useState([]);
   const [forecastArray, setForecastArray] = useState([]);
@@ -25,15 +25,15 @@ const App = () => {
     const getForecast = () => {
       if (forecast.length !== 0) {
         console.log(forecast);
-        setLastSearched(forecast["city"].name)
+        setLastSearched(forecast["city"].name);
         const dataArray = forecast["list"];
-        const convertedArray = dataArray.map(t => {
-          const dateObject = new Date((t.dt * 1000));
+        const convertedArray = dataArray.map((t) => {
+          const dateObject = new Date(t.dt * 1000);
 
           const newObject = {
             day: dateObject.toLocaleString("en-US", { weekday: "long" }), // Monday
             main: t.main,
-            weather: t.weather
+            weather: t.weather,
           };
 
           return newObject;
@@ -41,19 +41,22 @@ const App = () => {
 
         // Filter same days.
         const fiveDayArray = convertedArray.reduce((unique, current) => {
-          return typeof unique.find(item => item.day === current.day) === 'undefined' ? unique.concat([current]) : unique;
-        }, [])
+          return typeof unique.find((item) => item.day === current.day) ===
+            "undefined"
+            ? unique.concat([current])
+            : unique;
+        }, []);
         setForecastArray(fiveDayArray);
       }
-    }
+    };
 
     const clearForecast = () => {
       setForecastArray([]);
-    }
+    };
 
-    if (typeof forecast !== 'undefined') getForecast();
+    if (typeof forecast !== "undefined") getForecast();
     else clearForecast();
-  }, [forecast])
+  }, [forecast]);
 
   return (
     <div className="App">
@@ -78,9 +81,10 @@ const App = () => {
                     minTemp={data.main.temp_min}
                     maxTemp={data.main.temp_max}
                     currentTemp={data.main.temp}
-                    // feelsLike={data.main.feels_like}
+                    feelsLike={data.main.feels_like}
                     // humidity={data.main.humidity}
                     key={index}
+                    currentIndex={index}
                   />
                 );
               return x;

@@ -12,7 +12,7 @@
 
 .card {
     border-radius: 1rem;
-    margin: 7px;
+    margin: 5px;
     -webkit-box-shadow: 6px 6px 7px -1px rgba(0, 0, 0, 0.53);
     -moz-box-shadow: 6px 6px 7px -1px rgba(0, 0, 0, 0.53);
     box-shadow: 6px 6px 7px -1px rgba(0, 0, 0, 0.53);

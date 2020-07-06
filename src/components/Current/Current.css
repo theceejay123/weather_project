@@ -1,0 +1,15 @@
+.currentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.currentTemp,
+.feelsLike {
+  font-family: 'Poiret One', cursive;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.currentTemp {
+  font-size: 2rem;
+}
