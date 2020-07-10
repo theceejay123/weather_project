@@ -4,7 +4,6 @@ import Icon from "../Icon/Icon";
 import Current from "../Current/Current";
 import Temperature from "../Temperature/Temperature";
 import InfoModal from "../InfoModal/InfoModal";
-
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 

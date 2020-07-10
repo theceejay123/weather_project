@@ -6,9 +6,6 @@ import Days from "../Days/Days";
 const InfoModal = (props) => {
   return (
     <div className="infoModalContainer">
-      {/* {console.log(props.isOpen)}
-      {props.currentTemp} */}
-
       <Modal
         {...props}
         size="lg"
