@@ -35,7 +35,10 @@ const Weather = (props) => {
         {isOpen && (
           <InfoModal
             day={props.day}
-            currentTemp={props.currentTemp}
+            min_temp={props.minTemp}
+            max_temp={props.maxTemp}
+            weather_description={props.weatherDescription}
+            humidity={props.humidity}
             show={isOpen}
             onHide={handleClick}
           />

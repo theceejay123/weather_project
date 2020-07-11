@@ -77,12 +77,12 @@ const App = () => {
                   <Weather
                     day={data.day}
                     icon={data.weather[0].main}
-                    // weatherDescription={data.weather[0].description}
+                    weatherDescription={data.weather[0].description}
                     minTemp={data.main.temp_min}
                     maxTemp={data.main.temp_max}
                     currentTemp={data.main.temp}
                     feelsLike={data.main.feels_like}
-                    // humidity={data.main.humidity}
+                    humidity={data.main.humidity}
                     key={index}
                     currentIndex={index}
                   />
