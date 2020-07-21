@@ -36,13 +36,14 @@ const Weather = (props) => {
         <Button onClick={handleClick} />
         {isOpen && (
           <InfoModal
+            current_index={props.currentIndex}
             day={props.day}
             min_temp={props.minTemp}
             max_temp={props.maxTemp}
             weather_description={props.weatherDescription}
             humidity={props.humidity}
-            sunrise={sunriseTime.toLocaleString("en-US")}
-            sunset={sunsetTime.toLocaleString("en-US")}
+            sunset={sunsetTime.toLocaleTimeString("en-US")}
+            sunrise={sunriseTime.toLocaleTimeString("en-US")}
             show={isOpen}
             onHide={handleClick}
           />

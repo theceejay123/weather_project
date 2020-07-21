@@ -12,7 +12,7 @@ const App = () => {
   const [forecast, setForecast] = useState([]);
   const [lastSearched, setLastSearched] = useState([]);
   const [forecastArray, setForecastArray] = useState([]);
-  const [cityObject, setCityObject] = useState([]);
+  const [sunData, setSunData] = useState([]);
 
   const childProps = {
     forecast: forecast,
@@ -28,7 +28,6 @@ const App = () => {
         console.log(forecast);
         setLastSearched(forecast["city"].name);
         const dataArray = forecast["list"];
-        setCityObject(forecast["city"]);
         const convertedArray = dataArray.map((t) => {
           const dateObject = new Date(t.dt * 1000);
 
@@ -48,6 +47,15 @@ const App = () => {
             ? unique.concat([current])
             : unique;
         }, []);
+
+        fetch(
+          `https://api.sunrise-sunset.org/json?lat=${forecast["city"].coord.lat}}&lng=${forecast["city"].coord.lon}}&formatted=0`
+        )
+          .then((res) => {
+            if (res.status === 200) return res.json();
+          })
+          .then((data) => setSunData(data.results));
+
         setForecastArray(fiveDayArray);
       }
     };
@@ -55,7 +63,6 @@ const App = () => {
     const clearForecast = () => {
       setForecastArray([]);
     };
-
     if (typeof forecast !== "undefined") getForecast();
     else clearForecast();
   }, [forecast]);
@@ -67,7 +74,6 @@ const App = () => {
         <SearchBar props={childProps} />
       </div>
       <div className="weatherContainer">
-        {console.log(cityObject)}
         {typeof forecast !== "undefined" && forecast.length !== 0 ? (
           <React.Fragment>
             <h3 className="resultText">
@@ -86,8 +92,8 @@ const App = () => {
                     currentTemp={data.main.temp}
                     feelsLike={data.main.feels_like}
                     humidity={data.main.humidity}
-                    sunset={Date(cityObject.sunset)}
-                    sunrise={Date(cityObject.sunrise)}
+                    sunrise={sunData.sunrise}
+                    sunset={sunData.sunset}
                     key={index}
                     currentIndex={index}
                   />

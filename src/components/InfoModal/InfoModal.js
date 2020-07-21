@@ -29,17 +29,21 @@ const InfoModal = (props) => {
               <span className="value">{props.humidity}</span>
             </p>
           </div>
-          <div className="currentInfo">
-            <p className="weatherDescription">"{props.weather_description}"</p>
-            <p className="sunrise">
-              <span className="name">Sunrise: </span>
-              <span className="value">{props.sunrise}</span>
-            </p>
-            <p className="sunset">
-              <span className="name">Sunset: </span>
-              <span className="value">{props.sunset}</span>
-            </p>
-          </div>
+          {props.current_index === 0 && (
+            <div className="currentInfo">
+              <p className="weatherDescription">
+                "{props.weather_description}"
+              </p>
+              <p className="sunrise">
+                <span className="name">Sunrise: </span>
+                <span className="value">{props.sunrise}</span>
+              </p>
+              <p className="sunset">
+                <span className="name">Sunset: </span>
+                <span className="value">{props.sunset}</span>
+              </p>
+            </div>
+          )}
         </Modal.Body>
       </Modal>
     </div>
