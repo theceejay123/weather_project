@@ -11,6 +11,8 @@ import "./Weather.css";
 
 const Weather = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const sunriseTime = new Date(props.sunrise);
+  const sunsetTime = new Date(props.sunset);
 
   const handleClick = (event) => {
     setIsOpen(!isOpen);
@@ -39,6 +41,8 @@ const Weather = (props) => {
             max_temp={props.maxTemp}
             weather_description={props.weatherDescription}
             humidity={props.humidity}
+            sunrise={sunriseTime.toLocaleString("en-US")}
+            sunset={sunsetTime.toLocaleString("en-US")}
             show={isOpen}
             onHide={handleClick}
           />
